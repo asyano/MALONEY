@@ -25,9 +25,3 @@ mysql> show databases;
 
 Form や link_to_route() などが利用できる外部ライブラリ
 composer require laravelcollective/html:^6.0
-
-HEROKUの準備
-sudo snap install --classic heroku
-
-heroku login -i
-Enter your Heroku credentials.

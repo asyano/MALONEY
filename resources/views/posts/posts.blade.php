@@ -1,4 +1,4 @@
-@if (count($posts ?? '') > 0)
+@if (count($posts) > 0)
     <ul class="list-unstyled">
         @foreach ($posts ?? '' as $post)
             <li class="media mb-3">
