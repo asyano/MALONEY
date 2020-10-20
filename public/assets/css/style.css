@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+.hexagon {
+  position: relative;
+  width: 30px;
+}
+.hexagon::before {
+  display: block;
+  padding-top: 173.205080757%;  /* 3 / √3 * 100 */
+  content: '';
+}
+.hexagon__inner-1, .hexagon__inner-2, .hexagon__inner-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.hexagon__inner-2 {
+  transform: rotate(120deg);
+}
+.hexagon__inner-3 {
+  transform: rotate(-120deg);
+}
+.hexagon__inner-1::before, .hexagon__inner-1::after,
+.hexagon__inner-2::before, .hexagon__inner-2::after,
+.hexagon__inner-3::before, .hexagon__inner-3::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 5px;
+  content: '';
+  background-color: #1699cb;
+}
+.hexagon__inner-1::before, .hexagon__inner-2::before, .hexagon__inner-3::before {
+  top: 0;
+}
+.hexagon__inner-1::after, .hexagon__inner-2::after, .hexagon__inner-3::after {
+  bottom: 0;
+}
+
+/* ここから吹き出し*/
+
+
+.arrow_box {
+  display: none;
+  position: absolute;
+  padding: 16px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;  
+  border-radius: 8px;
+  background: #333;
+  color: #fff;
+}
+
+.arrow_box:after {
+  position: absolute;
+  bottom: 100%;
+  left: 20%;
+  width: 0;
+  height: 0;
+  margin-left: -10px;
+  border: solid transparent;
+  border-color: rgba(51, 51, 51, 0);
+  border-bottom-color: #333;
+  border-width: 10px;
+  pointer-events: none;
+  content: " ";
+}
+
+.ui-state-hover{
+  background-color:red;
+}
