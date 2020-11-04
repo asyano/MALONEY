@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Word; // 追加
 use Illuminate\Http\Request;
 
 class WordsController extends Controller
@@ -43,16 +43,17 @@ class WordsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $content, $category_id)
     {
         //認証済みユーザーの投稿として作成
         $request->user()->words()->create([
-            'content' => $request->content,
-            'category_id' => $request-> category_id,
+            'content' => $content,
+            'category_id' => $category_id,
         ]);
             
-        //前のURLにリダイレクト
-        return back();
+        //もとのページに戻る
+        return response()->json([
+            ], 200); //200が正常
     }
 
     /**
@@ -86,7 +87,16 @@ class WordsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // idの値でWordを検索して取得
+        $word = Word::findOrFail($id);
+
+         // Wordの情報を更新する時
+        $word->content = $request->content;
+        $word->category_id = $request->category_id;
+            
+        $word->save();
+
+        return redirect()->route('word.show', ['word' => $id]);
     }
 
     /**
@@ -104,7 +114,45 @@ class WordsController extends Controller
             $word->delete();
         }
         
-        // 前のURLへリダイレクトさせる
-        return back();
+       //もとのページに戻る
+        return response()->json([
+            ], 200); //200が正常
     }
+    
+    
+    
+    /**
+     * ドラッグ＆ドロップでカードのカテゴリを変更する
+     */
+     public function drop_category_change(Request $request, $id, $category_id)
+     {
+        // idの値で検索して取得
+        $word = Word::findOrFail($id);
+        
+        //カテゴリを変更
+        $word->category_id = $category_id;
+        $word->save();
+
+        //もとのページに戻る
+        return response()->json([
+                'category_id' => $word->category_id,
+            ], 200); //200が正常
+     }
+     
+      /**
+     * 更新
+     */
+     public function word_edit(Request $request, $id, $contents)
+     {
+        // idの値で検索して取得
+        $word = Word::findOrFail($id);
+        
+        //カテゴリを変更
+        $word->content = $contents;
+        $word->save();
+
+        //もとのページに戻る
+        return response()->json([
+            ], 200); //200が正常
+     }
 }

@@ -1,4 +1,4 @@
-{{--  --}}
+{{-- post投稿フォーム --}}
 
 {!! Form::open(['route' => 'posts.store']) !!}
     <div class="form-group">

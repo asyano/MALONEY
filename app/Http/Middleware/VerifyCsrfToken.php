@@ -19,6 +19,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+           'https://403733a273ad425e8bae8e01461ba7c8.vfs.cloud9.ap-northeast-1.amazonaws.com/*',
     ];
 }

@@ -20,6 +20,11 @@ class User extends Authenticatable
         return $this->hasMany(Word::class);
     }
     
+    public function word_caegorys()
+    {
+        return $this->hasMany(Word_category::class);
+    }
+    
     /**
      * The attributes that are mass assignable.
      *
