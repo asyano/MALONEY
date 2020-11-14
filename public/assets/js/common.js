@@ -62,17 +62,21 @@ $(function() {
 	         fetch('/word/store/'+ $(this)[0].innerText + '/' + 10 , {method: 'POST'}).then(
 	            function(response){
                 response.json().then(function(json){
+                  
+                  //新規カードは1枚だけ表示する
+               
                    //新規専用カードを一つ増やす
                    //appendTo = jqueryのやつ
                    //[0]がdom
                    var newDiv = document.createElement("li"); 
-                  $('<div class="media-body" ><div class ="card category_10 p-2"><h3 contentEditable="true"> + </h3></div></div>').appendTo(newDiv);
+                    $('<div class="media-body" ><div class ="card category_10 p-2"><h3 contentEditable="true"> + </h3></div></div>').appendTo(newDiv);
                  
-                  $(newDiv).addClass("media mb-2 ui-sortable-handle");
+                    $(newDiv).addClass("media mb-2 ui-sortable-handle");
                   
                   	$("#div1")[0].appendChild(newDiv);
                     dblclick();
                     touroku();
+                 
                 })
                }
 	           

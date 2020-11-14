@@ -1,9 +1,54 @@
-
+  {{-- 収納部分 --}}
+<div class ="row">
+      <div class ="card ui-widget-header category_1 col-2 selected" id = "category_1">
+        category_1
+           <br>
+        <br>
+          <br>
+            <br>  
+      </div>
+      <div class ="card ui-widget-header category_2 col-2" id = "category_2">
+        category_2
+           <br>
+        <br>
+          <br>
+            <br>  
+      </div>
+      <div class ="card ui-widget-header category_3 col-2" id = "category_3">
+        category_3
+          <br>
+        <br>
+          <br>
+            <br>  
+      </div>
+      <div class ="card ui-widget-header category_4 col-2" id = "category_4">
+        category_4
+          <br>
+        <br>
+          <br>
+            <br>  
+      </div>
+      
+       <div class ="card ui-widget-header category_delete col-2" id = "category_delete">
+        category_削除
+         <br>
+        <br>
+          <br>
+            <br>  
+      </div>
+</div>
+    
+    {{--4つ表示したら列を移動する  --}}
+    <?php
+    $i = 0;
+    
+    ?>
 <div class = "row">
    <ul class="list-unstyled ui-widget-content col-3" id="div1">
      @if(count($words) > 0)
         @foreach ($words as $word)
-          <li class=" media mb-2" data-id = "{!! $word->id !!}" data-cate ="category_{!! $word->category_id !!}">
+        
+          <li class="media mb-2" data-id = "{!! $word->id !!}" data-cate ="category_{!! $word->category_id !!}">
             <div class="media-body" >
               <div  class ="card category_{!! $word->category_id !!} p-2">
                 {{-- 投稿内容 --}}
@@ -28,46 +73,7 @@
     </ul>
  </div>  
 
-   {{-- 収納部分 --}}
-<div class ="row">
-      <div class ="card ui-widget-header category_1 col-5 selected" id = "category_1">
-        category_1
-           <br>
-        <br>
-          <br>
-            <br>  
-      </div>
-      <div class ="card ui-widget-header category_2 col-5" id = "category_2">
-        category_2
-           削除<br>
-        削除<br>
-          削除<br>
-            削除<br>  
-      </div>
-      <div class ="card ui-widget-header category_3 col-5" id = "category_3">
-        category_3
-           削除<br>
-        削除<br>
-          削除<br>
-            削除<br> 
-      </div>
-      <div class ="card ui-widget-header category_4 col-5" id = "category_4">
-        category_4
-           削除<br>
-        削除<br>
-          削除<br>
-            削除<br>  
-      </div>
-      
-       <div class ="card ui-widget-header category_delete col-5" id = "category_delete">
-        category_削除
-          削除<br>
-          削除<br>
-          削除<br>
-          削除<br>  
-      </div>
-</div>
-    
+ 
   
 
     {{-- ページネーションのリンク --}}
