@@ -1,4 +1,6 @@
 {{-- words一覧・投稿画面 --}}
+@csrf
+
 @extends('layouts.app')
 
 @section('content')
